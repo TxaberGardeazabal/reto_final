@@ -31,7 +31,7 @@ class DatabaseSeeder extends Seeder
             'admin' => true,
             'email' => 'admin@admin',
             'email_verified_at' => now(),
-            'password' => '12345Abcde',
+            'password' => '$2y$10$D1syaMS8RG9WiHlwZVCrZuuz/X76y2j6..1rVic3pzYwclN3oBrHy',
             'remember_token' => 'abcdefghij'
         ]);
         $admin->save();
@@ -43,7 +43,7 @@ class DatabaseSeeder extends Seeder
                 'admin' => false,
                 'email' => $faker->email(),
                 'email_verified_at' => now(),
-                'password' => '12345',
+                'password' => '$2y$10$OZgU2qBj/tQlQX0n2FMvmuHEUbDDF4jL8jIARLEy1..OWQyV5M3MG',
                 'remember_token' => 'abcdefghij'
             ]);
 
