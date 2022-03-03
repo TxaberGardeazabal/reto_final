@@ -19,8 +19,9 @@ class DatabaseSeeder extends Seeder
         $MAX_USUARIOS = 10;
         $MAX_PRODUCTOS = 20;
         $MAX_PEDIDOS = 10;
-        $MAX_CANTIDAD = 5;
-        $PROBABILIDAD_DE_OTRO_PRODUCTO = 5;
+        $MAX_CANTIDAD = 5; // cantidad de un producto en pedidos
+        $PROBABILIDAD_DE_OTRO_PRODUCTO = 5; // posibilidad de pedir dos productos diferentes 
+        $PROBABILIDAD_DE_OTRO_PEDIDO = 3; // posibilidad de haber dos pedidos diferentes 
 
         $faker = \Faker\Factory::create();
 
@@ -64,6 +65,7 @@ class DatabaseSeeder extends Seeder
         // pedidos
         $pedidos = [];
         for ($x = 0;$x < $MAX_PEDIDOS;$x++) {
+            $user;
             do {
                 $e = rand(1,$MAX_USUARIOS);
                 $user = \App\Models\User::find($e);
@@ -76,6 +78,18 @@ class DatabaseSeeder extends Seeder
 
             $pedi->save();
             array_push($pedidos, $pedi);
+
+            $t = rand(1, $PROBABILIDAD_DE_OTRO_PEDIDO); // 1/X pedira otro
+
+            if ($t === 1) {
+                $pedi = \App\Models\Pedido::create([
+                    'estado' => 'entregado', 
+                    'user_id' => $user->id
+                ]);
+
+                $pedi->save();
+                array_push($pedidos, $pedi);
+            }
         }
 
         foreach ($pedidos as $idx => $pedido) {
