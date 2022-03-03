@@ -10,8 +10,13 @@ class Pedido extends Model
     use HasFactory;
 
     // hipotetico
-    public function productos() {
+    /*public function productos() {
         return $this->hasMany(Producto::class);
+    }*/
+
+    public function productos()
+    {
+        return $this->belongsToMany(Pedido::class,'productos_pedidos','pedido_id','producto_id');
     }
 
     public function usuario()
