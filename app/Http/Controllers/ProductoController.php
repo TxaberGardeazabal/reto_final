@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Producto;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
+use App\Http\Controllers\Storage;
 
 class ProductoController extends Controller
 {
@@ -24,8 +26,8 @@ class ProductoController extends Controller
      */
     public function create()
     {
-        //
-    }
+        return view('productos.create');
+    } 
 
     /**
      * Store a newly created resource in storage.
@@ -35,7 +37,26 @@ class ProductoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        dd(storage_path());
+        $producto=new Producto();
+        $producto->nombre=$request->nombre;
+        $producto->precio=$request->precio;
+        //if($request->hasFile("imagen")){
+            $imagen=$request->imagen;
+            
+            $nombreimg=Str::slug($request->nombre).".".pathinfo( $imagen,PATHINFO_EXTENSION );
+                
+            $ruta="public/img/";
+
+
+            //copy($imagen->getRealPath(),$ruta.$nombreimg);
+            $producto->imagen=$nombreimg;
+        //}
+        $producto->descripcion=$request->descripcion;
+        $producto->save();
+        return redirect(route('index'));
+        
+    
     }
 
     /**
