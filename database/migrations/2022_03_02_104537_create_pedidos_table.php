@@ -24,7 +24,7 @@ return new class extends Migration
             /*
              * $table->unsignedBigInteger('producto_id');
              * $table->foreign('producto_id')->references('id')->on('productos'); 
-             * $table->number('cantidad);
+             * $table->integer('cantidad);
              */
 
             // https://medium.com/@afrazahmad090/laravel-many-to-many-relationship-explained-822b554c1973
