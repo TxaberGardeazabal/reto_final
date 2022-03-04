@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Producto;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
-use App\Http\Controllers\Storage;
+use Illuminate\Support\Facades\Storage;
 
 class ProductoController extends Controller
 {
@@ -37,7 +37,7 @@ class ProductoController extends Controller
      */
     public function store(Request $request)
     {
-        dd(storage_path());
+        
         $producto=new Producto();
         $producto->nombre=$request->nombre;
         $producto->precio=$request->precio;
@@ -47,14 +47,14 @@ class ProductoController extends Controller
             $nombreimg=Str::slug($request->nombre).".".pathinfo( $imagen,PATHINFO_EXTENSION );
                 
             $ruta="public/img/";
-
-
+            //$guardar= $imagen->store('nombreimg');
+            Storage::disk('local')->put($nombreimg, $request->imagen);
             //copy($imagen->getRealPath(),$ruta.$nombreimg);
             $producto->imagen=$nombreimg;
         //}
         $producto->descripcion=$request->descripcion;
         $producto->save();
-        return redirect(route('index'));
+        //return redirect(route('index'));
         
     
     }
