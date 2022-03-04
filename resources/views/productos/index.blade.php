@@ -36,6 +36,12 @@
         bottom: 3%;
     }
 
+    .beliminar{
+        position: absolute;
+        left: 2%;
+        bottom: 3%;
+    }
+
     /*Tablet*/
     @media(min-width:768px){
         .producto{
@@ -64,9 +70,9 @@
         @foreach($productos as $producto)
             <li class="producto m-2 text-center py-2" id="p{{$producto['id']}}">
                 <form method="post" action="./">
-                    <img class="imagen" src="{{ asset('img/magdalenas.png') }}" alt="">
+                    <img class="imagen" src="{{ asset('img/' . $producto['imagen']) }}">
                     <h2 class="px-2">{{$producto['nombre']}}</h2><p class="px-2 precio">{{$producto['precio']}}€</p>
-                    <button type="button" class="btn btn-outline-danger">Danger</button>
+                    <button type="button" class="btn btn-outline-danger beliminar">Eliminar</button>
                     <button id="{{$producto['id']}}" onclick="compra(this.id)" type="button" class="btn btn-outline-dark bcompra">Añadir al Carrito</button>
                 </form>
             </li>

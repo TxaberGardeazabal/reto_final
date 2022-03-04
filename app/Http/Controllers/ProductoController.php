@@ -64,7 +64,7 @@ class ProductoController extends Controller
      */
     public function show(Producto $producto)
     {
-        //
+       //
     }
 
     /**
@@ -108,4 +108,9 @@ class ProductoController extends Controller
         {
                 return $this->productos;
         }
+
+    public function searchById($id){
+        $producto = Producto::where('id',$id)->first();
+        return $producto;
+    }
 }

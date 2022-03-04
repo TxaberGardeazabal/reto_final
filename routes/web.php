@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProductoController;
 use Illuminate\Support\Facades\Route;
+use App\Models\Producto;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,3 +28,7 @@ Route::get("/carrito",function(){
 
 Route::get('/producto/create', [ProductoController::class, 'create'])->name('create');
 Route::post('/producto/create', [ProductoController::class, 'store'])->name('store');
+Route::get('/producto/{id}',function($id){
+    $producto = Producto::where('id',$id)->first();
+    return $producto;
+});
