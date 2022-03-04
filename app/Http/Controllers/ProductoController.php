@@ -63,9 +63,11 @@ class ProductoController extends Controller
      * @param  \App\Models\Producto  $producto
      * @return \Illuminate\Http\Response
      */
-    public function show(Producto $producto)
+    public function show($id)
     {
-        return view("productos.show");
+        $producto=Producto::find($id);
+
+        return view("productos.show", compact('producto'));
 
     }
 
@@ -87,9 +89,25 @@ class ProductoController extends Controller
      * @param  \App\Models\Producto  $producto
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Producto $producto)
+    public function update($id)
     {
-        //
+        $producto=Producto::find($id);
+        if(strlen(request('nombre'))>0){
+            $producto->nombre=request('nombre');
+        }
+        if(strlen(request('precio'))>0){
+            $producto->precio=request('precio');
+        }
+        if(strlen(request('imagen'))>0){
+            $nombreimg=Str::slug($producto->nombre).".".request('imagen')->extension();
+            request('imagen')->move(public_path('img'), $nombreimg);
+            $producto->imagen=$nombreimg;
+        }
+        if(strlen(request('descripcion'))>0){
+            $producto->nombre=request('descripcion');
+        }
+        $producto->save();
+        return view("productos.show", compact('producto'));
     }
 
     /**

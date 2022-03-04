@@ -41,13 +41,10 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-<<<<<<< HEAD
 
 
     public function pedidos()
     {
         return $this->hasMany(Pedido::class);
     }
-=======
->>>>>>> carlosBranch
 }

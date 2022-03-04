@@ -18,11 +18,8 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-<<<<<<< HEAD
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 
-=======
->>>>>>> carlosBranch
 </head>
 <body>
     <div id="app">
@@ -91,11 +88,7 @@
             </div>
         </nav>
 
-<<<<<<< HEAD
         <main class="row justify-content-center py-4">
-=======
-        <main class="py-4">
->>>>>>> carlosBranch
             @yield('content')
         </main>
     </div>
