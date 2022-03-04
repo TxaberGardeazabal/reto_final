@@ -1,7 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
+<<<<<<< HEAD
     <form class="col-11 col-md-9" action="{{route('store')}}" method="post">
+=======
+    <form class="col-11 col-md-9" action="{{route('store')}}" method="post" enctype="multipart/form-data">
+>>>>>>> carlosBranch
     @csrf
     <h2 class="text-center">Añadir producto</h2>
         <label class="form-label position-relative">
@@ -20,6 +24,10 @@
         </div>
         <input type="submit" value="Añadir">
     </form>
+<<<<<<< HEAD
 
 
 @endsection
+=======
+@endsection
+>>>>>>> carlosBranch

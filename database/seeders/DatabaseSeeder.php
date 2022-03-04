@@ -19,7 +19,13 @@ class DatabaseSeeder extends Seeder
         $MAX_USUARIOS = 10;
         $MAX_PRODUCTOS = 20;
         $MAX_PEDIDOS = 10;
+<<<<<<< HEAD
 
+=======
+        $MAX_CANTIDAD = 5; // cantidad de un producto en pedidos
+        $PROBABILIDAD_DE_OTRO_PRODUCTO = 5; // posibilidad de pedir dos productos diferentes 
+        $PROBABILIDAD_DE_OTRO_PEDIDO = 3; // posibilidad de haber dos pedidos diferentes 
+>>>>>>> carlosBranch
 
         $faker = \Faker\Factory::create();
 
@@ -49,7 +55,10 @@ class DatabaseSeeder extends Seeder
         }
 
         // productos
+<<<<<<< HEAD
         $productos = [];
+=======
+>>>>>>> carlosBranch
         for ($x = 0;$x < $MAX_PRODUCTOS;$x++) {
             $prod = \App\Models\Producto::create([
                 'nombre' => $faker->sentence(),
@@ -59,11 +68,20 @@ class DatabaseSeeder extends Seeder
             ]);
 
             $prod->save();
+<<<<<<< HEAD
             array_push($productos, $prod);
         }
         
         // pedidos
         for ($x = 0;$x < $MAX_PEDIDOS;$x++) {
+=======
+        }
+        
+        // pedidos
+        $pedidos = [];
+        for ($x = 0;$x < $MAX_PEDIDOS;$x++) {
+            $user;
+>>>>>>> carlosBranch
             do {
                 $e = rand(1,$MAX_USUARIOS);
                 $user = \App\Models\User::find($e);
@@ -75,11 +93,49 @@ class DatabaseSeeder extends Seeder
             ]);
 
             $pedi->save();
+<<<<<<< HEAD
         }
 
 
+=======
+            array_push($pedidos, $pedi);
+
+            $t = rand(1, $PROBABILIDAD_DE_OTRO_PEDIDO); // 1/X pedira otro
+
+            if ($t === 1) {
+                $pedi = \App\Models\Pedido::create([
+                    'estado' => 'entregado', 
+                    'user_id' => $user->id
+                ]);
+
+                $pedi->save();
+                array_push($pedidos, $pedi);
+            }
+        }
+
+        foreach ($pedidos as $idx => $pedido) {
+            $producto = \App\Models\Producto::find(rand(1,$MAX_PRODUCTOS));
+            $pedido->productos()->attach($producto->id, ['created_at' => now(),'cantidad' => rand(1,$MAX_CANTIDAD)]);
+
+            // algunos pedidos pueden ser de diferentes productos, aqui pongo algun producto extra
+            $x = rand(1, $PROBABILIDAD_DE_OTRO_PRODUCTO); // 1/X pedira otro
+
+            if ($x === 1) {
+                do {
+                    $producto2 = \App\Models\Producto::find(rand(1,$MAX_PRODUCTOS));
+                } while($producto->id == $producto2->id); // evitamos duplicar
+
+                $pedido->productos()->attach($producto2->id, ['created_at' => now(),'cantidad' => rand(1,$MAX_CANTIDAD)]);
+            }
+        }
+        
+>>>>>>> carlosBranch
 
         // \App\Models\User::factory(10)->create();
 
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> carlosBranch

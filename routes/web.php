@@ -14,16 +14,17 @@ use App\Http\Controllers\ProductoController;
 |
 */
 
-Route::get('/', function () {
-    return view('productos.index');
-});
+
+Route::get('/', [ProductoController::class,'index'])->name('index');
 
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+Route::get("/carrito",function(){
+    return view("carrito");
+})->name("carrito");
+
 Route::get('/producto/create', [ProductoController::class, 'create'])->name('create');
 Route::post('/producto/create', [ProductoController::class, 'store'])->name('store');
-
-
-
+Route::get('/producto/show', [ProductoController::class, 'show'])->name('show');

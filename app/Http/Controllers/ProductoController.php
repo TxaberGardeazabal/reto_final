@@ -16,7 +16,8 @@ class ProductoController extends Controller
      */
     public function index()
     {
-        //
+        $productos=Producto::all();
+        return view("productos.index")->with('productos',$productos);
     }
 
     /**
@@ -27,7 +28,7 @@ class ProductoController extends Controller
     public function create()
     {
         return view('productos.create');
-    } 
+    }
 
     /**
      * Store a newly created resource in storage.
@@ -41,22 +42,19 @@ class ProductoController extends Controller
         $producto=new Producto();
         $producto->nombre=$request->nombre;
         $producto->precio=$request->precio;
-        //if($request->hasFile("imagen")){
-            $imagen=$request->imagen;
+        if($request->hasFile("imagen")){
             
-            $nombreimg=Str::slug($request->nombre).".".pathinfo( $imagen,PATHINFO_EXTENSION );
-                
-            $ruta="public/img/";
+            $nombreimg=Str::slug($request->nombre).".".$request->imagen->extension();
+
+            $request->imagen->move(public_path('img'), $nombreimg);
             //$guardar= $imagen->store('nombreimg');
-            Storage::disk('local')->put($nombreimg, $request->imagen);
+            //Storage::disk('local')->put($nombreimg, $request->imagen);
             //copy($imagen->getRealPath(),$ruta.$nombreimg);
             $producto->imagen=$nombreimg;
-        //}
+        }
         $producto->descripcion=$request->descripcion;
         $producto->save();
-        //return redirect(route('index'));
-        
-    
+        return redirect(route('index'));
     }
 
     /**
@@ -67,7 +65,8 @@ class ProductoController extends Controller
      */
     public function show(Producto $producto)
     {
-        //
+        return view("productos.show");
+
     }
 
     /**
