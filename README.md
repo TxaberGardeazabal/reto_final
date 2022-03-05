@@ -19,7 +19,6 @@ Esta aplicacion esta hecha con la funcion de gestionar pedidos de productos en e
 | - Actualizar el estado de los pedidos                 |                                                  |
 | - Puede ver la descripción del producto y modificarlo |                                                  |
 
-[https://www.tablesgenerator.com/markdown_tables](https://www.tablesgenerator.com/markdown_tables)
 
 
 ## setup
