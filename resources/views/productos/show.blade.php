@@ -5,7 +5,7 @@
         <ul id="lProductos">
             <li class="producto m-2 text-center py-2" id="p{{$producto['id']}}" >
                 
-                <img class="imagen" src="{{ asset('img/magdalenas.png') }}" alt="">
+                <img class="imagen" src="{{ asset('img/' . $producto['imagen']) }}">
                 <h2 class="px-2">{{$producto['nombre']}}</h2>
                 <p class="px-2 precio">{{$producto['precio']}}€</p>   
                     
@@ -34,13 +34,43 @@
                         @endif
                         >{{$producto['descripcion']}} </textarea>
                     </div>
-                    @if(auth()->user()->admin!=0)
-                    <input class="btn btn-primary m-2" type="submit" value="Actualizar">
-                    @endif
-                    <a href="{{route('index') }}">Volver</a>
+                    <div>
+                        @if(auth()->user()->admin!=0)
+                        <input class="btn btn-primary m-2" type="submit" value="Actualizar">
+                        @endif
+
+                        <button id="{{$producto['id']}}" onclick="compra(this.id)" type="button" class="btn btn-outline-dark bcompra">Añadir al Carrito</button>
+                        <a href="{{route('index') }}" class="btn btn-outline-dark m-3 mb-0">Volver</a>
+                    </div>
                 </form>
             </li>
         </ul>
     </div>
 </div>
+
 @endsection
+<script>
+    function compra(id){
+        var productos = sessionStorage.getItem('carrito');
+        if(productos){//Si hay mas productos
+            var productosFind=[];
+            productosFind=productos.split(" ");
+            var duplicado=false;
+            productosFind.find(function(element){//Busca si el producto ya existe
+                if(element==id){
+                    duplicado=true;
+                }
+            });
+            if(duplicado==true){
+                console.log("El producto esta duplicado");
+            }else{
+                productos=productos + " " + id;
+                sessionStorage.setItem('carrito',productos);
+            }
+        }else{//Si el carrito esta vacio
+            productos=id;
+            sessionStorage.setItem('carrito',productos);
+        }
+      
+    }
+</script>

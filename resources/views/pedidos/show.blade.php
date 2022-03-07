@@ -14,51 +14,53 @@
             
             <div class="accordion-item">
                 <h2 class="accordion-header" id="headingOne">
-                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{$pedido->id}}" aria-expanded="true" aria-controls="collapseOne">
                         <ul class="list-unstyled fs-3">
                             <li>
-                                numero {{ $contador }}
+                                Pedido {{ $contador }}
                             </li>
                             <li>
-                                estado: {{ $pedido->estado }}
+                                Estado: {{ $pedido->estado }}
                             </li>
                             <li>
-                                pedido en: {{ $pedido->created_at }}
+                                Pedido en: {{ $pedido->created_at }}
                             </li>
                         </ul>
                         </button>
                 </h2>
-                <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                <div id="collapse{{$pedido->id}}" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                     <div class="accordion-body">
 
                        
                         @php
                             $total = 0;
+                            $contador2 = 0;
                         @endphp
                         @foreach($pedido->productos as $producto)
 
                         @php
                             $total += $producto->precio * $producto->pivot->cantidad;
+                            $contador2 ++;
                         @endphp
                         
-                        <ul class="list-unstyled">
+                        <ul class="list-unstyled fs-4">
                             <li>
-                                id: {{ $producto->id }}
+                                Producto: {{ $contador2 }}
                             </li>
                             <li>
-                                producto: {{ $producto->nombre }}
+                                Nombre: {{ $producto->nombre }}
                             </li>
                             <li>
-                                precio unitario: {{ $producto->precio }}&euro;
+                                Precio unitario: {{ $producto->precio }}&euro;
                             </li>
                             <li>
-                                cantidad: {{ $producto->pivot->cantidad }}
+                                Cantidad: {{ $producto->pivot->cantidad }}
                             </li>
                         </ul>
                         <hr>
 
                         @endforeach
-                        <b>total del pedido: {{ $total }}&euro;</b>
+                        <b>Total del pedido: {{ $total }}&euro;</b>
 
                     </div>
                 </div>
