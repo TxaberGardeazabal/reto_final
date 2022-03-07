@@ -17,7 +17,7 @@ Esta aplicacion esta hecha con la funcion de gestionar pedidos de productos en e
 | - Puede crear productos                               | - Puede ver la descripción del producto                        |
 | - Ver todos los pedidos                               | - Puede ver los pedidos que tiene junto con los productos      |
 | - Actualizar el estado de los pedidos                 | - Puede ver los productos que tiene en el carrito de la compra |
-| - Puede ver la descripción del producto y modificarlo | - Puede hacer el pedido                                        |
+| - Puede ver la descripción del producto y modificarlo | - Puede hacer el pedido (apartado del carrito)                 |
 
 [https://www.tablesgenerator.com/markdown_tables](https://www.tablesgenerator.com/markdown_tables)
 
