@@ -11,13 +11,13 @@ Esta aplicacion esta hecha con la funcion de gestionar pedidos de productos en e
     - Contraseña: 
 
 
-| **Administrador**                                     | **Cliente**                                      |
-|-------------------------------------------------------|--------------------------------------------------|
-| - Puede eliminar productos                            | - Puede añadir productos al carrito de la compra |
-| - Puede crear productos                               | - Puede ver la descripción del producto          |
-| - Ver todos los pedidos                               | - Puede                                          |
-| - Actualizar el estado de los pedidos                 |                                                  |
-| - Puede ver la descripción del producto y modificarlo |                                                  |
+| **Administrador**                                     | **Cliente**                                                    |
+|-------------------------------------------------------|----------------------------------------------------------------|
+| - Puede eliminar productos                            | - Puede añadir productos al carrito de la compra               |
+| - Puede crear productos                               | - Puede ver la descripción del producto                        |
+| - Ver todos los pedidos                               | - Puede ver los pedidos que tiene junto con los productos      |
+| - Actualizar el estado de los pedidos                 | - Puede ver los productos que tiene en el carrito de la compra |
+| - Puede ver la descripción del producto y modificarlo | - Puede hacer el pedido (apartado del carrito)                 |
 
 
 
