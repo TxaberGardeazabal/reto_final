@@ -95,10 +95,9 @@ class ProductoController extends Controller
         
         if(strlen(request('nombre'))>0){
             //dd(request('nombre'));
-            $producto->nombre='pepe';
+            $producto->nombre=request('nombre');
         }
         if(strlen(request('precio'))>0){
-            
             $producto->precio=request('precio');
         }
         if(strlen(request('imagen'))>0){
@@ -107,9 +106,9 @@ class ProductoController extends Controller
             $producto->imagen=$nombreimg;
         }
         if(strlen(request('descripcion'))>0){
-            $producto->nombre=request('descripcion');
+            $producto->descripcion=request('descripcion');
         }
-        //dd($producto->nombre);
+        
         $producto->save();
         return view("productos.show", compact('producto'));
     }

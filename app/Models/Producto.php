@@ -9,6 +9,13 @@ class Producto extends Model
 {
     use HasFactory;
 
+    /*protected $fillable = [
+        'nombre',
+        'precio',
+        'imagen',
+        'descripcion'
+    ];*/
+
     // hipotetico
     /*public function pedidos() {
         return $this->hasMany(Pedido::class);
