@@ -27,6 +27,7 @@ Route::get("/carrito",function(){
     return view("carrito");
 })->name("carrito");
 
+Route::delete('/producto/{id}', [ProductoController::class,'destroy'])->name('destroy');
 Route::get('/producto', [ProductoController::class,'index'])->name('index');
 Route::put('/producto/show/{id}', [ProductoController::class, 'update'])->name('update')->middleware('auth');
 Route::get('/producto/create', [ProductoController::class, 'create'])->name('create')->middleware('auth');
