@@ -6,13 +6,21 @@
         @foreach($productos as $producto)
             <li class="producto m-2 text-center py-2" id="p{{$producto['id']}}">
                 <form method="post" action="./">
-                    <img class="imagen" src="{{ asset('img/' . $producto['imagen']) }}">
-                    <h2 class="px-2">{{$producto['nombre']}}</h2><p class="px-2 precio">{{$producto['precio']}}€</p>
-                    @if(auth()->user()->admin!=0)
-                        <button type="button" class="btn btn-outline-danger beliminar">Eliminar</button>
+                    <a class="text-dark text-decoration-none" href="{{ route('show',$producto->id) }}">
+                        <img class="imagen" src="{{ asset('img/' . $producto['imagen']) }}">
+                        <h2 class="px-2">{{$producto['nombre']}}</h2><p class="px-2 precio">{{$producto['precio']}}€</p>
+                    </a>
+                    @auth
+                        @if(auth()->user()->admin!=0)
+                            <button type="button" class="btn btn-outline-danger beliminar">Eliminar</button>
+                        @else
+                            <button id="{{$producto['id']}}" onclick="compra(this.id)" type="button" class="btn btn-outline-dark bcompra">Añadir al Carrito</button>
+                        @endif
                     @else
                         <button id="{{$producto['id']}}" onclick="compra(this.id)" type="button" class="btn btn-outline-dark bcompra">Añadir al Carrito</button>
-                    @endif
+
+                    @endauth
+                    
                 </form>
             </li>
         @endforeach

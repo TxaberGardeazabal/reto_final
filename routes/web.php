@@ -16,7 +16,7 @@ use App\Http\Controllers\ProductoController;
 
 
 Route::get('/', function () {
-    return redirect(route('home'));
+    return redirect(route('index'));
 });
 
 Auth::routes();
@@ -27,7 +27,7 @@ Route::get("/carrito",function(){
     return view("carrito");
 })->name("carrito");
 
-Route::get('/producto', [ProductoController::class,'index'])->name('index')->middleware('auth');
+Route::get('/producto', [ProductoController::class,'index'])->name('index');
 Route::put('/producto/show/{id}', [ProductoController::class, 'update'])->name('update')->middleware('auth');
 Route::get('/producto/create', [ProductoController::class, 'create'])->name('create')->middleware('auth');
 Route::post('/producto/create', [ProductoController::class, 'store'])->name('store')->middleware('auth');
