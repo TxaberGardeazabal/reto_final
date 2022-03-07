@@ -23,6 +23,16 @@ class DatabaseSeeder extends Seeder
         $PROBABILIDAD_DE_OTRO_PRODUCTO = 5; // posibilidad de pedir dos productos diferentes 
         $PROBABILIDAD_DE_OTRO_PEDIDO = 3; // posibilidad de haber dos pedidos diferentes 
 
+        $imgUrls = [
+            'magdalenas.png',
+            'cubiertos.jfif',
+            'ensalada.jfif',
+            'macaroni.jfif',
+            'merengue.jfif',
+            'pollo.jfif',
+            'sopa.jfif',
+        ];
+
         $faker = \Faker\Factory::create();
 
         // admin account
@@ -52,10 +62,12 @@ class DatabaseSeeder extends Seeder
 
         // productos
         for ($x = 0;$x < $MAX_PRODUCTOS;$x++) {
+            $img = rand(0, count($imgUrls) -1);
+
             $prod = \App\Models\Producto::create([
                 'nombre' => $faker->sentence(),
                 'precio' => $faker->randomFloat(2,0,100),
-                'imagen' => $faker->imageUrl(), #mas tarde tendremos imagenes de prueba
+                'imagen' => $imgUrls[$img],
                 'descripcion' => $faker->text(50)
             ]);
 
