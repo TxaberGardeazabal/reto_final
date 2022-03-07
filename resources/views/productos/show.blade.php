@@ -9,7 +9,7 @@
                 <h2 class="px-2">{{$producto['nombre']}}</h2>
                 <p class="px-2 precio">{{$producto['precio']}}€</p>   
                     
-                <form class="col-11 " method="get" action="{{route('update',$producto['id'])}}">  
+                <form class="col-11 " method="post" action="{{ route('update',  $producto['id']) }}">  
                     @csrf
                     @method("PUT")
                     @if(auth()->user()->admin!=0)

@@ -24,6 +24,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get("/carrito",function(){
     return view("carrito");
 })->name("carrito");
+
 Route::put('/producto/show/{id}', [ProductoController::class, 'update'])->name('update')->middleware('auth');
 Route::get('/producto/create', [ProductoController::class, 'create'])->name('create')->middleware('auth');
 Route::post('/producto/create', [ProductoController::class, 'store'])->name('store')->middleware('auth');

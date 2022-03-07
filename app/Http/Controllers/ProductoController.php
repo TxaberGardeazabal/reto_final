@@ -89,13 +89,16 @@ class ProductoController extends Controller
      * @param  \App\Models\Producto  $producto
      * @return \Illuminate\Http\Response
      */
-    public function update($id)
+    public function update($id, Request $request)
     {
         $producto=Producto::find($id);
+        
         if(strlen(request('nombre'))>0){
-            $producto->nombre=request('nombre');
+            //dd(request('nombre'));
+            $producto->nombre='pepe';
         }
         if(strlen(request('precio'))>0){
+            
             $producto->precio=request('precio');
         }
         if(strlen(request('imagen'))>0){
@@ -106,6 +109,7 @@ class ProductoController extends Controller
         if(strlen(request('descripcion'))>0){
             $producto->nombre=request('descripcion');
         }
+        //dd($producto->nombre);
         $producto->save();
         return view("productos.show", compact('producto'));
     }
