@@ -18,10 +18,10 @@
                         @if(auth()->user()->admin!=0)
                             <button type="submit" class="btn btn-outline-danger beliminar">Eliminar</button>
                         @else
-                            <button id="{{$producto['id']}}" onclick="compra(this.id)" type="button" class="btn btn-outline-dark bcompra">Añadir al Carrito</button>
+                            <button id="{{$producto['id']}}" onclick="compra(this.id)" type="button" class="btn btn-outline-dark ">Añadir al Carrito</button>
                         @endif
                     @else
-                        <button id="{{$producto['id']}}" onclick="compra(this.id)" type="button" class="btn btn-outline-dark bcompra">Añadir al Carrito</button>
+                        <button id="{{$producto['id']}}" onclick="compra(this.id)" type="button" class="btn btn-outline-dark ">Añadir al Carrito</button>
 
                     @endauth
                     
