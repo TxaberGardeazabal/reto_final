@@ -66,7 +66,7 @@
                 @empty
                     <p>No tienes pedidos</p>
             @endforelse
-                
+            <a href="{{route('index') }}" class="btn btn-outline-dark m-3 ">Volver</a>
         </div>
 
     @endsection

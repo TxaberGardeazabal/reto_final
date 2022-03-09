@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
 <div class="row">
-    <div class="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12 p-0">
+    <div class="col-12  ">
         <h2 class="text-center mb-3">Carrito de la compra</h2>
         <table class="table table-bordered table-dark w-75 mx-auto text-center">
             <thead class="thead-dark">
@@ -15,11 +15,15 @@
             </thead>
             <tbody id="tablaCarrito" class="table-light">            
             </tbody>
+            
         </table>
+        <div class="row justify-content-center w-40 mx-auto col-3">
+            <a href="{{route('index') }}" class="btn btn-outline-dark m-3 ms-5">Volver</a>
+        </div>
     </div>
 </div>
 @endsection
-<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
 <script>
     $(document).ready(function(){
         var carrito=[];

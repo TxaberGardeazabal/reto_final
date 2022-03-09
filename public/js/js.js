@@ -14,10 +14,14 @@ function compra(id){
         }else{
             productos=productos + " " + id;
             sessionStorage.setItem('carrito',productos);
+            swal({title: "Producto añadido",timer: 1500, showConfirmButton: false})
+
+            
         }
     }else{//Si el carrito esta vacio
         productos=id;
         sessionStorage.setItem('carrito',productos);
+        swal({title: "Producto añadido",timer: 1500, showConfirmButton: false})
     }
   
 }

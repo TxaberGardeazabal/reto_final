@@ -53,7 +53,7 @@ label {
     }
 
     .imagen{
-        width: 20em;
+        width: 14em;
         border-radius: 2em;
     }
 
@@ -62,7 +62,6 @@ label {
         font-size: larger
     }
 
-  
 
     /*Tablet*/
     @media(min-width:768px){
