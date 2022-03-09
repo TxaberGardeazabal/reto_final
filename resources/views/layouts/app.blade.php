@@ -25,16 +25,13 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light  shadow-sm" style="background-color: rgb(130, 224, 170);">
+        <nav class="navbar navbar-expand navbar-light  shadow-sm" style="background-color: rgb(130, 224, 170);">
             <div class="container">
                 <a class="navbar-brand " href="{{ url('/producto') }}">
                     Hosteleria
                 </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
 
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <div >
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
 
