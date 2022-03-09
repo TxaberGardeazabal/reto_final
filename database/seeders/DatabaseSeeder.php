@@ -47,7 +47,17 @@ class DatabaseSeeder extends Seeder
         $admin->save();
 
         // usuarios
-        for ($x = 0;$x < $MAX_USUARIOS;$x++) {
+        // usuario de pruebas
+        $user = \App\Models\User::create([
+            'name' => 'cliente',
+            'admin' => false,
+            'email' => 'cliente@cliente',
+            'email_verified_at' => now(),
+            'password' => Hash::make("12345678"),
+            'remember_token' => 'abcdefghij'
+        ])->save();
+
+        for ($x = 0;$x < $MAX_USUARIOS -1;$x++) {
             $user = \App\Models\User::create([
                 'name' => $faker->name(),
                 'admin' => false,
