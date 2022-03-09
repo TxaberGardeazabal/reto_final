@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Pedido;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\MailController;
+use App\Mail\Mail;
 
 class PedidoController extends Controller
 {
@@ -75,7 +77,10 @@ class PedidoController extends Controller
      */
     public function update(Request $request, Pedido $pedido)
     {
-        //
+        if(request('estados')=="Resuelta"){
+            $cliente=Users::find();
+            Mail::to($cliente->email)->send(new Mail());
+        }
     }
 
     /**
