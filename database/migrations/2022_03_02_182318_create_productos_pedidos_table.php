@@ -16,11 +16,11 @@ return new class extends Migration
         Schema::create('productos_pedidos', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->unsignedBigInteger('producto_id');
+            $table->unsignedBigInteger('producto_id')->nullable();
             $table->unsignedBigInteger('pedido_id');
             $table->integer('cantidad');
 
-            $table->foreign('producto_id')->references('id')->on('productos')->onDelete('cascade');
+            $table->foreign('producto_id')->nullable()->references('id')->on('productos')->nullOnDelete();
             $table->foreign('pedido_id')->references('id')->on('pedidos')->onDelete('cascade');
 
         });

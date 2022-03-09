@@ -9,6 +9,13 @@ class Producto extends Model
 {
     use HasFactory;
 
+    /*protected $fillable = [
+        'nombre',
+        'precio',
+        'imagen',
+        'descripcion'
+    ];*/
+
     // hipotetico
     /*public function pedidos() {
         return $this->hasMany(Pedido::class);
@@ -16,6 +23,6 @@ class Producto extends Model
 
     public function pedidos()
     {
-        return $this->belongsToMany(Pedido::class,'productos_pedidos','producto_id','pedido_id');
+        return $this->belongsToMany(Pedido::class,'productos_pedidos','producto_id','pedido_id')->withPivot('cantidad');
     }
 }

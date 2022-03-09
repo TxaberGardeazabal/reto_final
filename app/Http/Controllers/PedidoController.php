@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Pedido;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PedidoController extends Controller
 {
@@ -44,9 +45,14 @@ class PedidoController extends Controller
      * @param  \App\Models\Pedido  $pedido
      * @return \Illuminate\Http\Response
      */
-    public function show(Pedido $pedido)
+    public function show()
     {
-        //
+        $user = Auth::user();
+
+        $pedidos = Pedido::where('user_id',$user->id)->get();
+        //$a = $pedidos[0]->productos()->get()[0];
+        //dd($a);
+        return view('pedidos.show',['pedidos' => $pedidos]);
     }
 
     /**

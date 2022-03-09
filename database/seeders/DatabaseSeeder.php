@@ -2,9 +2,8 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-
+use Illuminate\Support\Facades\Hash;
 class DatabaseSeeder extends Seeder
 {
 
@@ -21,7 +20,31 @@ class DatabaseSeeder extends Seeder
         $MAX_PEDIDOS = 10;
         $MAX_CANTIDAD = 5; // cantidad de un producto en pedidos
         $PROBABILIDAD_DE_OTRO_PRODUCTO = 5; // posibilidad de pedir dos productos diferentes 
-        $PROBABILIDAD_DE_OTRO_PEDIDO = 3; // posibilidad de haber dos pedidos diferentes 
+        $PROBABILIDAD_DE_OTRO_PEDIDO = 3; // posibilidad de haber dos pedidos diferentes
+
+        $namePool = [
+            'Deliciosas magdalenas caseras',
+            'Cubiertos de plastico',
+            'Cubiertos de metal',
+            'Ensalada mixta',
+            'Macarrones con tomate',
+            'Carolinas',
+            'MMmmmh mira este pollo asado',
+            'Sopa',
+            'El mitiquisimo spaghetti, amado por todos los mortales'
+        ];
+
+        $imgPool = [
+            'magdalenas.png',
+            'cubiertos.jfif',
+            'cubiertos.png',
+            'ensalada.jfif',
+            'macaroni.jfif',
+            'merengue.jfif',
+            'pollo.jfif',
+            'sopa.jfif',
+            'spaghetti.png'
+        ];
 
         $faker = \Faker\Factory::create();
 
@@ -31,19 +54,29 @@ class DatabaseSeeder extends Seeder
             'admin' => true,
             'email' => 'admin@admin',
             'email_verified_at' => now(),
-            'password' => '$2y$10$D1syaMS8RG9WiHlwZVCrZuuz/X76y2j6..1rVic3pzYwclN3oBrHy',
+            'password' => Hash::make("12345Abcde"),
             'remember_token' => 'abcdefghij'
         ]);
         $admin->save();
 
         // usuarios
-        for ($x = 0;$x < $MAX_USUARIOS;$x++) {
+        // usuario de pruebas
+        $user = \App\Models\User::create([
+            'name' => 'cliente',
+            'admin' => false,
+            'email' => 'cliente@cliente',
+            'email_verified_at' => now(),
+            'password' => Hash::make("12345678"),
+            'remember_token' => 'abcdefghij'
+        ])->save();
+
+        for ($x = 0;$x < $MAX_USUARIOS -1;$x++) {
             $user = \App\Models\User::create([
                 'name' => $faker->name(),
                 'admin' => false,
                 'email' => $faker->email(),
                 'email_verified_at' => now(),
-                'password' => '$2y$10$OZgU2qBj/tQlQX0n2FMvmuHEUbDDF4jL8jIARLEy1..OWQyV5M3MG',
+                'password' => Hash::make("12345678"),
                 'remember_token' => 'abcdefghij'
             ]);
 
@@ -52,10 +85,12 @@ class DatabaseSeeder extends Seeder
 
         // productos
         for ($x = 0;$x < $MAX_PRODUCTOS;$x++) {
+            $data = rand(0, count($imgPool) -1);
+
             $prod = \App\Models\Producto::create([
-                'nombre' => $faker->sentence(),
-                'precio' => $faker->randomFloat(2,0,100),
-                'imagen' => $faker->imageUrl(), #mas tarde tendremos imagenes de prueba
+                'nombre' => $namePool[$data],
+                'precio' => $faker->randomFloat(2,0,40),
+                'imagen' => $imgPool[$data],
                 'descripcion' => $faker->text(50)
             ]);
 
