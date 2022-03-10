@@ -3,7 +3,6 @@
 <div class="row">
     <div class="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12 p-0">
         <h2 class="text-center mb-3">Carrito de la compra</h2>
-            @csrf
         <table class="table table-bordered table-dark w-75 mx-auto text-center">
             <thead class="thead-dark">
                 <tr>
@@ -23,8 +22,12 @@
                 </tr>
             </tfoot>
         </table>
+  
         <hr class="w-75 mx-auto">
         <button type="button" id="comprar" class="btn" disabled style="width:75%;margin:0 12.5%;background-color: rgb(130, 224, 170) !important;padding:0.3% 0;font-size:140%">Comprar</button>
+        <div class="row justify-content-center w-40 mx-auto col-3">
+          <a href="{{route('index') }}" class="btn btn-outline-dark m-3 ms-5">Volver</a>
+        </div>
         <!--Toast de compra Correcta-->
         <div id="mensaje" class="toast " style="position: absolute; top: 0; right: 0;">
             <div class="toast-header">

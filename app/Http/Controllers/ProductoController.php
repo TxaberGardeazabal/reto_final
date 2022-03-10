@@ -38,10 +38,11 @@ class ProductoController extends Controller
      */
     public function store(Request $request)
     {
+        
         $producto=new Producto();
         $producto->nombre=$request->nombre;
         $producto->precio=$request->precio;
-        //if($request->hasFile("imagen")){
+        if($request->hasFile("imagen")){
             
             $nombreimg=Str::slug($request->nombre).".".$request->imagen->extension();
 
@@ -50,7 +51,7 @@ class ProductoController extends Controller
             //Storage::disk('local')->put($nombreimg, $request->imagen);
             //copy($imagen->getRealPath(),$ruta.$nombreimg);
             $producto->imagen=$nombreimg;
-        //}
+        }
         $producto->descripcion=$request->descripcion;
         $producto->save();
         return redirect(route('index'));
@@ -62,9 +63,10 @@ class ProductoController extends Controller
      * @param  \App\Models\Producto  $producto
      * @return \Illuminate\Http\Response
      */
-    public function show(Producto $producto)
+    public function show($id)
     {
-       //
+        $producto=Producto::find($id);
+        return view("productos.show", compact('producto'));
     }
 
     /**
@@ -85,9 +87,28 @@ class ProductoController extends Controller
      * @param  \App\Models\Producto  $producto
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Producto $producto)
+    public function update($id, Request $request)
     {
-        //
+        $producto=Producto::find($id);
+        
+        if(strlen(request('nombre'))>0){
+            //dd(request('nombre'));
+            $producto->nombre=request('nombre');
+        }
+        if(strlen(request('precio'))>0){
+            $producto->precio=request('precio');
+        }
+        if(strlen(request('imagen'))>0){
+            $nombreimg=Str::slug($producto->nombre).".".request('imagen')->extension();
+            request('imagen')->move(public_path('img'), $nombreimg);
+            $producto->imagen=$nombreimg;
+        }
+        if(strlen(request('descripcion'))>0){
+            $producto->descripcion=request('descripcion');
+        }
+        
+        $producto->save();
+        return view("productos.show", compact('producto'));
     }
 
     /**
@@ -96,21 +117,9 @@ class ProductoController extends Controller
      * @param  \App\Models\Producto  $producto
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Producto $producto)
+    public function destroy( $id)
     {
-        //
-    }
-
-        /**
-         * Get the value of productos
-         */ 
-        public function getProductos()
-        {
-                return $this->productos;
-        }
-
-    public function searchById($id){
-        $producto = Producto::where('id',$id)->first();
-        return $producto;
+        Producto::destroy($id);
+        return redirect(route('index'));
     }
 }

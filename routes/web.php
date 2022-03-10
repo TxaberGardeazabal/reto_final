@@ -1,9 +1,7 @@
 <?php
-
 use App\Http\Controllers\PedidoController;
 use App\Http\Controllers\ProductoController;
 use Illuminate\Support\Facades\Route;
-use App\Models\Producto;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,7 +15,9 @@ use App\Models\Producto;
 */
 
 
-Route::get('/', [ProductoController::class,'index'])->name('index');
+Route::get('/', function () {
+    return redirect(route('index'));
+});
 
 Auth::routes();
 
@@ -27,13 +27,12 @@ Route::get("/carrito",function(){
     return view("carrito");
 })->name("carrito");
 
-Route::get('/producto/create', [ProductoController::class, 'create'])->name('create');
-Route::post('/producto/create', [ProductoController::class, 'store'])->name('store');
-Route::get('/producto/{id}',function($id){
-    $producto = Producto::where('id',$id)->first();
-    return $producto;
-});
-
+Route::delete('/producto/{id}', [ProductoController::class,'destroy'])->name('destroy');
+Route::get('/producto', [ProductoController::class,'index'])->name('index');
+Route::put('/producto/show/{id}', [ProductoController::class, 'update'])->name('update')->middleware('auth');
+Route::get('/producto/create', [ProductoController::class, 'create'])->name('create')->middleware('auth');
+Route::post('/producto/create', [ProductoController::class, 'store'])->name('store')->middleware('auth');
+Route::get('/producto/show/{id}', [ProductoController::class, 'show'])->name('show');
+Route::get('/pedidos/show', [PedidoController::class, 'show'])->name('pedidos.show')->middleware('auth');
+Route::post('/pedidos/update/{id}', [App\Http\Controllers\PedidoController::class, 'update'])->name('pedidos.update')->middleware('auth');
 Route::post('/carrito/compra',[PedidoController::class,'store'])->name('compra');
-
-
