@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('pedidos', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->string('estado');
+            $table->string('estado')->default('en proceso');
             $table->unsignedBigInteger('user_id');
 
             $table->foreign('user_id')->references('id')->on('users');

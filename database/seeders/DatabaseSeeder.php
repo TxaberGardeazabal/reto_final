@@ -46,6 +46,13 @@ class DatabaseSeeder extends Seeder
             'spaghetti.png'
         ];
 
+        $ESTADO = [
+            'recibido',
+            'en proceso',
+            'preparado',
+            'retrasado'
+        ];
+
         $faker = \Faker\Factory::create();
 
         // admin account
@@ -106,8 +113,10 @@ class DatabaseSeeder extends Seeder
                 $user = \App\Models\User::find($e);
             } while($user->admin);
 
+            $e = rand(0, count($ESTADO)-1);
+
             $pedi = \App\Models\Pedido::create([
-                'estado' => 'entregado', // igual cambiar a otro
+                'estado' => $ESTADO[$e], 
                 'user_id' => $user->id
             ]);
 
@@ -117,8 +126,10 @@ class DatabaseSeeder extends Seeder
             $t = rand(1, $PROBABILIDAD_DE_OTRO_PEDIDO); // 1/X pedira otro
 
             if ($t === 1) {
+                $e = rand(0, count($ESTADO)-1);
+
                 $pedi = \App\Models\Pedido::create([
-                    'estado' => 'entregado', 
+                    'estado' => $ESTADO[$e], 
                     'user_id' => $user->id
                 ]);
 

@@ -3,20 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\Pedido;
+use GuzzleHttp\Promise\Create;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class PedidoController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
 
     /**
      * Show the form for creating a new resource.
@@ -49,10 +41,16 @@ class PedidoController extends Controller
     {
         $user = Auth::user();
 
-        $pedidos = Pedido::where('user_id',$user->id)->get();
-        //$a = $pedidos[0]->productos()->get()[0];
-        //dd($a);
-        return view('pedidos.show',['pedidos' => $pedidos]);
+        if ($user->admin) {
+            // index
+            return view('pedidos.index',['pedidos' => Pedido::all()]);
+        }
+        else {
+            $pedidos = Pedido::where('user_id',$user->id)->get();
+            //$a = $pedidos[0]->productos()->get()[0];
+            //dd($a);
+            return view('pedidos.show',['pedidos' => $pedidos]);
+        }  
     }
 
     /**

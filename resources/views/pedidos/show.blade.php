@@ -2,7 +2,8 @@
 @section('content')
 
         <div class="col accordion col-12 col-sm-11 col-md-10 text-center" id="accordionExample">
-           
+            <h1 class=" display-1">Tus pedidos</h1>
+            <hr class="my-2">
         @php
             $contador = 0;
         @endphp
@@ -13,8 +14,8 @@
             @endphp
             
             <div class="accordion-item">
-                <h2 class="accordion-header" id="headingOne">
-                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{$pedido->id}}" aria-expanded="true" aria-controls="collapseOne">
+                <h3 class="accordion-header" id="headingOne">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{$pedido->id}}" aria-expanded="true" aria-controls="collapseOne">
                         <ul class="list-unstyled fs-3">
                             <li>
                                 Pedido {{ $contador }}
@@ -27,8 +28,8 @@
                             </li>
                         </ul>
                         </button>
-                </h2>
-                <div id="collapse{{$pedido->id}}" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                </h3>
+                <div id="collapse{{$pedido->id}}" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                     <div class="accordion-body">
 
                        
@@ -60,13 +61,13 @@
                         <hr>
 
                         @endforeach
-                        <b>Total del pedido: {{ $total }}&euro;</b>
+                        <b class="fs-3">Total del pedido: {{ $total }}&euro;</b>
 
                     </div>
                 </div>
             </div>
             @empty
-            <h2 >no tienes pedidos</h2>
+            <h3 >No tienes pedidos</h3>
             @endforelse
                 
         </div>
