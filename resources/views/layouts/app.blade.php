@@ -22,13 +22,12 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
-
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand navbar-light  shadow-sm" style="background-color: rgb(130, 224, 170);">
+        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm" style="background-color: rgb(130, 224, 170) !important;">
             <div class="container">
-                <a class="navbar-brand " href="{{ url('/producto') }}">
+                <a class="navbar-brand " href="{{ url('/') }}">
                     Hosteleria
                 </a>
 
@@ -67,7 +66,6 @@
                                         <path d="M7.5 1v7h1V1h-1z"/>
                                         <path d="M3 8.812a4.999 4.999 0 0 1 2.578-4.375l-.485-.874A6 6 0 1 0 11 3.616l-.501.865A5 5 0 1 1 3 8.812z"/>
                                         </svg>
-
                                         Cerrar sesion
                                     </a>
                                     <a class="dropdown-item" style="display:flex;align-items:center" href="{{ route('pedidos.show')}}">

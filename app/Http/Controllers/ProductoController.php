@@ -66,9 +66,7 @@ class ProductoController extends Controller
     public function show($id)
     {
         $producto=Producto::find($id);
-
         return view("productos.show", compact('producto'));
-
     }
 
     /**
@@ -122,8 +120,6 @@ class ProductoController extends Controller
     public function destroy( $id)
     {
         Producto::destroy($id);
-
         return redirect(route('index'));
-
     }
 }

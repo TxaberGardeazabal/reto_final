@@ -6,7 +6,6 @@
         @foreach($productos as $producto)
 
             <li class="producto m-2 text-center py-2" id="p{{$producto['id']}}">
-
                 <form method="post" action="{{ route('destroy',  $producto['id']) }}">
                     @csrf
                     @method('DELETE')
@@ -24,7 +23,6 @@
                         <button id="{{$producto['id']}}" onclick="compra(this.id)" type="button" class="btn btn-outline-dark ">Añadir al Carrito</button>
 
                     @endauth
-                    
                 </form>
             </li>
         @endforeach

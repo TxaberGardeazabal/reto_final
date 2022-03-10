@@ -1,8 +1,7 @@
 <?php
-
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\PedidoController;
+use App\Http\Controllers\ProductoController;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,3 +35,4 @@ Route::post('/producto/create', [ProductoController::class, 'store'])->name('sto
 Route::get('/producto/show/{id}', [ProductoController::class, 'show'])->name('show');
 Route::get('/pedidos/show', [PedidoController::class, 'show'])->name('pedidos.show')->middleware('auth');
 Route::post('/pedidos/update/{id}', [App\Http\Controllers\PedidoController::class, 'update'])->name('pedidos.update')->middleware('auth');
+Route::post('/carrito/compra',[PedidoController::class,'store'])->name('compra');
