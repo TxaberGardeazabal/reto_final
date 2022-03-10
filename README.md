@@ -4,11 +4,11 @@ Esta aplicacion esta hecha con la funcion de gestionar pedidos de productos en e
 
 ## Usuarios
 - **Administrador**
-    - Usuario:
-    - Contraseña: 
+    - Usuario: admin@admin
+    - Contraseña: 12345Abcde
 - **Cliente**
-    - Usuario:
-    - Contraseña: 
+    - Usuario: cliente@cliente
+    - Contraseña: 12345678
 
 
 | **Administrador**                                     | **Cliente**                                                    |
