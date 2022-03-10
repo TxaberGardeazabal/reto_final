@@ -11,7 +11,7 @@
                     @csrf
                     @method('DELETE')
                     <a class="text-dark text-decoration-none" href="{{ route('show',$producto->id) }}">
-                        <img class="imagen" src="{{ asset('img/' . $producto['imagen']) }}">
+                        <img class="imagen mt-2" src="{{ asset('img/' . $producto['imagen']) }}">
                         <h2 class="px-2">{{$producto['nombre']}}</h2><p class="px-2 precio">{{$producto['precio']}}€</p>
                     </a>
                     @auth

@@ -5,9 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Pedido;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use App\Http\Controllers\MailController;
-use App\Mail\Mail;
 
+use App\Models\User;
+use App\Http\Controllers\MailController;
 class PedidoController extends Controller
 {
     /**
@@ -51,10 +51,16 @@ class PedidoController extends Controller
     {
         $user = Auth::user();
 
-        $pedidos = Pedido::where('user_id',$user->id)->get();
-        //$a = $pedidos[0]->productos()->get()[0];
-        //dd($a);
-        return view('pedidos.show',['pedidos' => $pedidos]);
+        if ($user->admin) {
+            // index
+            return view('pedidos.index',['pedidos' => Pedido::all()]);
+        }
+        else {
+            $pedidos = Pedido::where('user_id',$user->id)->get();
+            //$a = $pedidos[0]->productos()->get()[0];
+            //dd($a);
+            return view('pedidos.show',['pedidos' => $pedidos]);
+        } 
     }
 
     /**
@@ -75,12 +81,20 @@ class PedidoController extends Controller
      * @param  \App\Models\Pedido  $pedido
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Pedido $pedido)
+    public function update($id)
     {
-        if(request('estados')=="Resuelta"){
-            $cliente=Users::find();
-            Mail::to($cliente->email)->send(new Mail());
+        $pedido=Pedido::find($id);
+        if(request('estado')!=$pedido->estado){
+            $pedido->estado=request('estado');
+            
+            if(request('estado')=="preparado"){
+                $cliente=User::find($pedido->user_id);
+                (new MailController)->sendEmail($cliente->email);
+            }
+            $pedido->save();
         }
+        return redirect(route('pedidos.show'));
+        
     }
 
     /**

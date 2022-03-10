@@ -5,7 +5,7 @@
         <ul id="lProductos">
             <li class="producto m-2 text-center py-2" id="p{{$producto['id']}}" >
                 
-                <img class="imagen" src="{{ asset('img/' . $producto['imagen']) }}">
+                <img class="imagen mt-2" src="{{ asset('img/' . $producto['imagen']) }}">
                 <h2 class="px-2">{{$producto['nombre']}}</h2>
                 <p class="px-2 precio">{{$producto['precio']}}€</p>   
                     

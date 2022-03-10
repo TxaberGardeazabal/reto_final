@@ -25,7 +25,7 @@
 @endsection
 
 <script>
-    $(document).ready(function(){
+    
         var carrito=[];
         carrito=sessionStorage.getItem('carrito').split(" ");
         console.log(carrito);
@@ -72,8 +72,8 @@
                 });
             }
         }else{
-            
+            alert('no hay productos')
         }
     
-    });
+   
 </script>
