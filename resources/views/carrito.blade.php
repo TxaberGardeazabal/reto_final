@@ -57,10 +57,9 @@
         }else{
             alert("No hay productos en el carrito");
         }
-
         function peticion(i,carrito){
             $.ajax({
-                url: '/producto/' + carrito[i],
+                url: '/carrito/producto/' + carrito[i],
                 type: 'GET',
                 cache: false,
                 success: function (data) {
@@ -97,7 +96,7 @@
                     elemento.appendChild(precioFinal);
                     elemento.appendChild(eliminar);
                     elemento.id=data["id"];
-                    elemento.classList.add("producto");
+                    //elemento.classList.add("producto");
                     tabla.appendChild(elemento);
                     
                     $(inputCantidad).on("change",()=>{
@@ -137,7 +136,6 @@
                 } 
             });
         }
-
         function calculaPrecioFinalTotal(carrito){
             var precioFinal=0;
             if(carrito!=null){
@@ -151,12 +149,10 @@
             }
             document.getElementById("precioFinalTotal").innerHTML=`${Math.round((precioFinal + Number.EPSILON)* 100) / 100} €`;
         }
-
         function muestraMensajeToast(){
             var mensaje=document.getElementById("mensaje");
             mensaje.classList.add("show");
         }
-
         $("#comprar").on("click",function(){
             let productos=document.getElementsByClassName("producto");//Obtengo el id de los elentos en la tabla
             let productosDB=new Array();
