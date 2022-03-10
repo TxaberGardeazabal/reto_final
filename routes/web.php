@@ -26,6 +26,8 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get("/carrito",function(){
     return view("carrito");
 })->name("carrito");
+Route::post('/pedidos/update/{id}', [PedidoController::class, 'update'])->name('pedidos.update')->middleware('auth');
+Route::get('/carrito/compra',[PedidoController::class,'store'])->name('compra');
 
 Route::delete('/producto/{id}', [ProductoController::class,'destroy'])->name('destroy');
 Route::get('/producto', [ProductoController::class,'index'])->name('index');
@@ -34,5 +36,5 @@ Route::get('/producto/create', [ProductoController::class, 'create'])->name('cre
 Route::post('/producto/create', [ProductoController::class, 'store'])->name('store')->middleware('auth');
 Route::get('/producto/show/{id}', [ProductoController::class, 'show'])->name('show');
 Route::get('/pedidos/show', [PedidoController::class, 'show'])->name('pedidos.show')->middleware('auth');
-Route::post('/pedidos/update/{id}', [App\Http\Controllers\PedidoController::class, 'update'])->name('pedidos.update')->middleware('auth');
-Route::post('/carrito/compra',[PedidoController::class,'store'])->name('compra');
+
+
