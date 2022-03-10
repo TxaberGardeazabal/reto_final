@@ -71,9 +71,15 @@ class PedidoController extends Controller
      * @param  \App\Models\Pedido  $pedido
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Pedido $pedido)
+    public function update($id, Request $request)
     {
-        //
+        $ped = Pedido::find($id);
+        if($ped->estado != $request->estado)
+            $ped->estado = $request->estado;
+            
+        $ped->save();
+
+        return redirect('pedidos/show');
     }
 
     /**

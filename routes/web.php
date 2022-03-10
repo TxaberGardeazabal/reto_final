@@ -34,3 +34,4 @@ Route::get('/producto/create', [ProductoController::class, 'create'])->name('cre
 Route::post('/producto/create', [ProductoController::class, 'store'])->name('store')->middleware('auth');
 Route::get('/producto/show/{id}', [ProductoController::class, 'show'])->name('show')->middleware('auth');
 Route::get('/pedidos/show', [App\Http\Controllers\PedidoController::class, 'show'])->name('pedidos.show')->middleware('auth');
+Route::post('/pedidos/update/{id}', [App\Http\Controllers\PedidoController::class, 'update'])->name('pedidos.update')->middleware('auth');
