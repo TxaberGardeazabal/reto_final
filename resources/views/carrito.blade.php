@@ -96,7 +96,7 @@
                     elemento.appendChild(precioFinal);
                     elemento.appendChild(eliminar);
                     elemento.id=data["id"];
-                    //elemento.classList.add("producto");
+                    elemento.classList.add("productos");
                     tabla.appendChild(elemento);
                     
                     $(inputCantidad).on("change",()=>{
@@ -154,7 +154,7 @@
             mensaje.classList.add("show");
         }
         $("#comprar").on("click",function(){
-            let productos=document.getElementsByClassName("producto");//Obtengo el id de los elentos en la tabla
+            let productos=document.getElementsByClassName("productos");//Obtengo el id de los elentos en la tabla
             let productosDB=new Array();
             Array.from(productos).forEach(element => {
                 let cantidad=document.getElementById(`in${element.id}`).value;

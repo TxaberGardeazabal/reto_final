@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Producto;
 
 class Productos_pedido extends Controller
 {
@@ -13,9 +14,14 @@ class Productos_pedido extends Controller
      */
     public function index()
     {
-        //
-    }
+        return view("carrito");
 
+    }
+    public function visualilzar_productos($id)
+    {
+        $producto = Producto::where('id',$id)->first();
+        return $producto;
+    }
     /**
      * Show the form for creating a new resource.
      *

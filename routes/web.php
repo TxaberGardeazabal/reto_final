@@ -3,6 +3,7 @@ use App\Http\Controllers\PedidoController;
 use App\Http\Controllers\ProductoController;
 use Illuminate\Support\Facades\Route;
 use App\Models\Producto;
+use App\Http\Controllers\Productos_pedido;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,13 +25,8 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get("/carrito",function(){
-    return view("carrito");
-})->name("carrito");
-Route::get('/carrito/producto/{id}',function($id){
-    $producto = Producto::where('id',$id)->first();
-    return $producto;
-});
+Route::get("/carrito",[Productos_pedido::class, 'index'])->name("carrito");
+Route::get('/carrito/producto/{id}',[Productos_pedido::class, 'visualilzar_productos']);
 
 Route::delete('/producto/{id}', [ProductoController::class,'destroy'])->name('destroy');
 Route::get('/producto', [ProductoController::class,'index'])->name('index');
