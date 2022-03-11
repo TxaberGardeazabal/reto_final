@@ -108,10 +108,10 @@ class DatabaseSeeder extends Seeder
         $pedidos = [];
         for ($x = 0;$x < $MAX_PEDIDOS;$x++) {
             $user;
-            do {
+            //do {
                 $e = rand(1,$MAX_USUARIOS);
                 $user = \App\Models\User::find($e);
-            } while($user->admin);
+            //} while($user->admin);
 
             $e = rand(0, count($ESTADO)-1);
 
