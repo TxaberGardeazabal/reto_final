@@ -30,6 +30,41 @@ label {
   }
 
   /*Movil*/
+  #busqueda{
+    color: black;
+    padding: 0.25%;
+    margin-bottom: 1.5%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    }
+
+    #buscador{
+        width: 70%;
+        height: 2.5pc;
+        border: none;
+        font-size: 1.15pc;
+        outline: none;
+        padding-left: 1%;
+        border-radius: 1em;
+        box-shadow: 0px 0px 1px 2px gainsboro;
+    }
+
+    #buscar{
+        height: 2.5pc;
+        padding: 0 1pc;
+        border: none;
+        background-color: rgb(99, 99, 99);
+        color: white;
+        font-size: 1.15pc;
+        border-radius: 1em;
+        margin-left: 0.7em;
+    }
+
+    #buscar:hover{
+        background-color:darkgrey;
+    }
+
     #lProductos{
         list-style: none;
         display: flex;
@@ -72,6 +107,9 @@ label {
         .imagen{
             width: 23em;
         }
+        #buscador{
+            width: 60%;
+        }
     }
 
     /*PC*/
@@ -81,5 +119,8 @@ label {
         }
         .imagen{
             width: 23em;
+        }
+        #buscador{
+            width: 50%;
         }
     }
