@@ -40,9 +40,12 @@
         </div>
     </div>
 </div>
+
 @endsection
 
+
 <script>
+    //<script src="{{ asset('js/carrito.js') }}" defer>  no funciona el apartado de subir a la base de datos, por eso lo dejamos en la misma pagina
     window.onload=function(){
         var carrito=[];
         carrito=sessionStorage.getItem('carrito').split(" ");
