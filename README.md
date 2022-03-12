@@ -23,10 +23,11 @@ Esta aplicacion esta hecha con la funcion de gestionar pedidos de productos en e
     - Nada mas entrar en la aplicación aparece la pagina de los productos donde tu puedes añadir al carrito lo que desees comprar.
     - Para poder comprar los productos añadidos en el carrito tienes que iniciar sesión.
     - Una vez inicias sesion o te registras aparecerá en la varra de arriba un boton con el nombre con el que te as registrado.
-    - Para poder ver sus pedidos y el carrito de compra, clicas en el boton anteriormente mencionado.
+    - Para poder ver sus pedidos y el carrito de compra, clicas en el boton anteriormente mencionado y aparece un desplegable con todas las opciones.
     - Para poder ver la descripcion del producto solo tiene que clicar en la imagen o en el texto de cada roducto.
 - ### Admin
-    - El administrador tiene una cuenta para poder administrar todo y las opciones estan en el mismo sitio que en el cliente.
+    - El administrador tiene una cuenta para poder administrar todo.
+    - El apartado de creacion del producto aparece en el desplegable.
     - En vez de tener un boton de añadir a la cesta tiene un botón de eliminar, elimina el producto.
     - En la descripcion del producto tiene una opcion de modificar el producto, el nombre, precio, inagen y descripcion.
     - En el apartado de los pedidos puede ver todos y tiene la opcion de cambiar el estado en el que esta dicho pedido.
