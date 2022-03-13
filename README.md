@@ -19,19 +19,22 @@ Esta aplicacion esta hecha con la funcion de gestionar pedidos de productos en e
 | - Actualizar el estado de los pedidos                 | - Puede ver los productos que tiene en el carrito de la compra |
 | - Puede ver la descripción del producto y modificarlo | - Puede hacer el pedido (apartado del carrito)                 |
 
-- ### Cliente
-    - Nada mas entrar en la aplicación aparece la pagina de los productos donde tu puedes añadir al carrito lo que desees comprar.
-    - Para poder comprar los productos añadidos en el carrito tienes que iniciar sesión.
-    - Una vez inicias sesion o te registras aparecerá en la varra de arriba un boton con el nombre con el que te as registrado.
-    - Para poder ver sus pedidos y el carrito de compra, clicas en el boton anteriormente mencionado y aparece un desplegable con todas las opciones.
-    - Para poder ver la descripcion del producto solo tiene que clicar en la imagen o en el texto de cada roducto.
-- ### Admin
-    - El administrador tiene una cuenta para poder administrar todo.
-    - El apartado de creacion del producto aparece en el desplegable.
-    - En vez de tener un boton de añadir a la cesta tiene un botón de eliminar, elimina el producto.
-    - En la descripcion del producto tiene una opcion de modificar el producto, el nombre, precio, inagen y descripcion.
-    - En el apartado de los pedidos puede ver todos y tiene la opcion de cambiar el estado en el que esta dicho pedido.
-    - En el cambio de ese pedido cuando se cambie a 'prearado' se envia un email al cliente que ha hecho el pedido, diciendo que ya esta listo. 
+
+- Nada mas entrar en la aplicación aparece la pagina de los productos donde tu puedes añadir al carrito lo que desees comprar.
+ ### Cliente
+- Para poder comprar los productos añadidos en el carrito tienes que iniciar sesión.
+- Una vez inicias sesion o te registras aparecerá en la varra de arriba un boton con el nombre con el que te as registrado.
+- Para poder ver sus pedidos y el carrito de compra, clicas en el boton anteriormente mencionado y aparece un desplegable 
+  con todas las opciones.
+- Para poder ver la descripcion del producto solo tiene que clicar en la imagen o en el texto de cada roducto.
+ ### Admin
+- El administrador tiene una cuenta para poder administrar todo, las opciones estan en el mismo sitio que en el cliente.
+- En vez de tener un boton de añadir a la cesta tiene un botón de eliminar, elimina el producto.
+- El apartado de creacion del producto aparece en el desplegable.
+- En la descripcion del producto tiene una opcion de modificar el producto, el nombre, precio, inagen y descripcion.
+- En el apartado de los pedidos puede ver todos y tiene la opcion de cambiar el estado en el que esta dicho pedido.
+- En el cambio de ese pedido cuando se cambie a 'prearado' se envia un email al cliente que ha hecho el pedido, 
+  diciendo que ya esta listo. 
 
 
 ## setup
