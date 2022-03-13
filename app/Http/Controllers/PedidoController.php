@@ -43,12 +43,15 @@ class PedidoController extends Controller
 
         if ($user->admin) {
             // index
+            
             return view('pedidos.index',['pedidos' => Pedido::all()]);
         }
         else {
             $pedidos = Pedido::where('user_id',$user->id)->get();
-            //$a = $pedidos[0]->productos()->get()[0];
-            //dd($a);
+
+            //$pedidos = $user->pedidos;
+            //$a = Pedido::find(2)->usuario;
+            //dd($pedidos);
             return view('pedidos.show',['pedidos' => $pedidos]);
         }  
     }

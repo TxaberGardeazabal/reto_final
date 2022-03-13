@@ -49,7 +49,7 @@
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
 
-                                    <label class="form-check-label" for="remember">
+                                    <label class="form-check-label m-0" for="remember">
                                         Recordar contrase&ntilde;a
                                     </label>
                                 </div>
