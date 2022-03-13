@@ -33,7 +33,7 @@ Esta aplicacion esta hecha con la funcion de gestionar pedidos de productos en e
 - El apartado de creacion del producto aparece en el desplegable.
 - En la descripcion del producto tiene una opcion de modificar el producto, el nombre, precio, inagen y descripcion.
 - En el apartado de los pedidos puede ver todos y tiene la opcion de cambiar el estado en el que esta dicho pedido.
-- En el cambio de ese pedido cuando se cambie a 'prearado' se envia un email al cliente que ha hecho el pedido, 
+- En el cambio de ese pedido cuando se cambie a 'preparado' se envia un email al cliente que ha hecho el pedido, 
   diciendo que ya esta listo. 
 
 
