@@ -34,7 +34,6 @@
             <div class="col">
                 <input class="btn btn-success" type="submit" value="Añadir">
                 <a href="{{route('index') }}" class="btn btn-outline-dark m-1 ">Volver</a>
-
             </div>
         </div>
     </form>

@@ -38,7 +38,7 @@
                         </div>
                         <div>
                             @if(auth()->user()->admin!=0)
-                                <input class="btn btn-primary m-3 mb-2" type="submit" value="Actualizar">
+                                <input class="btn btn-success m-3 mb-2" type="submit" value="Actualizar">
                             @endif
                             @if(auth()->user()->admin!=1)
                                 <button id="{{$producto['id']}}" onclick="compra(this.id)" type="button" class="btn btn-outline-dark mt-1">Añadir al Carrito</button>
