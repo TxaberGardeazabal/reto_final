@@ -3,7 +3,7 @@ function eventosBusqueda(){
     if(document.getElementById("buscador").value==0){
         let lproductos=Array.from(document.getElementsByClassName("nombre"));
         for(let i=0;i<lproductos.length;i++){
-            document.getElementById(`p${i+1}`).style.display="list-item";
+           lproductos[i].style.display="list-item";
         }
         if(document.getElementById("mensaje")){
             document.getElementById("mensaje").remove();
