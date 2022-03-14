@@ -41,3 +41,6 @@ Esta aplicacion esta hecha con la funcion de gestionar pedidos de productos en e
 
 [https://github.com/jvadillo/guia-laravel-8-paso-a-paso](https://github.com/jvadillo/guia-laravel-8-paso-a-paso)
 
+## heroku
+
+[herokuapp](https://hosteleriasuper.herokuapp.com/)
