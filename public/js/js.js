@@ -1,7 +1,6 @@
 let elementosOcultos=false;//Indica si hay elementos ocultos
 function eventosBusqueda(){
     if(document.getElementById("buscador").value==0){
-        console.log("Elementos");
         let lproductos=Array.from(document.getElementsByClassName("nombre"));
         for(let i=0;i<lproductos.length;i++){
             document.getElementById(`p${i+1}`).style.display="list-item";
@@ -23,9 +22,13 @@ function buscar(){
     valorBuscado = valorBuscado.trim();//Elimina los espacios
     valorBuscado = valorBuscado.toLowerCase();
     let encontrado = false;
-    let lproductos=Array.from(document.getElementsByClassName("nombre"));
+    let lproductos=Array.from(document.getElementsByClassName("producto"));
+    let lproductosText=[]
     for(let i=0;i<lproductos.length;i++){
-        lproductos[i]=lproductos[i].innerHTML;
+        lproductosText=Array.from(lproductos[i].children[0].getElementsByTagName('a'));
+        console.log(lproductosText[0].children[1].innerHTML);
+        lproductos[i]=lproductosText[0].children[1].innerHTML;
+        //lproductos[i]=lproductos[i].innerHTML;
     }
     if(valorBuscado){
         var elementosEncontrados = [];
@@ -34,39 +37,34 @@ function buscar(){
             texto=elemento;
             texto=texto.toLowerCase();
             if(texto.includes(valorBuscado)){
-                elementosEncontrados.push(i+1);
+                elementosEncontrados.push(i);
             }
         });
         if(elementosEncontrados.length>0){
             encontrado = true;
             ocultar(elementosEncontrados,lproductos);
         }else{
-            let lproductos=Array.from(document.getElementsByClassName("nombre"));
+            let lproductos=Array.from(document.getElementsByClassName("producto"));
             for(let i=0;i<lproductos.length;i++){
-                document.getElementById(`p${i+1}`).style.display="none";
+                lproductos[i].style.display="none";
             }
             notFoundItem(document.getElementById("buscador").value);
         }
     }
 }
 
-function ocultar(posicionesEncontradas,lproductos){//Oculta todo menos los elementos con id coincidentes
+function ocultar(posicionesEncontradas){//Oculta todo menos los elementos con id coincidentes
+    let lproductos=document.getElementsByClassName("producto");
     let posicionesEncontradas2=[];
     posicionesEncontradas2=posicionesEncontradas;
     for(let i=0;i<lproductos.length;i++){ 
-        // local document.getElementById(`p${i+1}`).style.display="none";
-        if(i==0){
-            num=i+1;
-        }else{
-            num=i+11;
-        }
-        document.getElementById(`p${num}`).style.display="none";
+        lproductos[i].style.display="none";
         elementosOcultos=true;
         posicionesEncontradas2.find(element=>{
-            if(element==(i+1)){
+            if(element==(i)){
                 //id coincide, no ocultar
                 elementosOcultos=false;
-                document.getElementById(`p${i+1}`).style.display="list-item";
+                lproductos[i].style.display="list-item";
             }
         });
         
@@ -109,7 +107,6 @@ function compra(id){
         sessionStorage.setItem('carrito',productos);
         muestraMensajeToast();
     }
-  
 }
 function muestraMensajeToast(){
     var mensaje=document.getElementById("mensaje");
