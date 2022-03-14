@@ -31,6 +31,9 @@ Esta aplicacion esta hecha con la funcion de gestionar pedidos de productos en e
 - Para poder ver sus pedidos y el carrito de compra, clicas en el boton anteriormente mencionado y aparece un desplegable 
   con todas las opciones.
 - Para cerrar sesion se hace desde el desplegable anteriormente mencionado.
+- Se muestran notificaciones de tipo toast en las siguientes ocasiones: 
+    - Después de añadir un producto(excepto cuando ya existe en el carrito).
+    - Después de completar el proceso de compra.
  ### Admin
 - El administrador tiene una cuenta para poder administrar todo, las opciones estan en el mismo sitio que en el cliente.
 - En vez de tener un boton de añadir a la cesta tiene un botón de eliminar que elimina el producto.
