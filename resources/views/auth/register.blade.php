@@ -7,7 +7,7 @@
             <div class="card">
                 <div class="card-header">
                     <div class="d-flex justify-content-center">
-                        <h2 class="m-0">{{ __('registrarse') }}</h2>
+                        <h2 class="m-0">{{ __('Registrarse') }}</h2>
                     </div>
                 </div>
 

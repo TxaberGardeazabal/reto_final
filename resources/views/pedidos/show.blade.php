@@ -15,8 +15,8 @@
             
             <div class="accordion-item">
                 <h3 class="accordion-header" id="headingOne">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{$pedido->id}}" aria-expanded="true" aria-controls="collapseOne">
-                        <ul class="list-unstyled fs-3">
+                <button class="accordion-button collapsed border-bottom-0 w-100" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{$pedido->id}}" aria-expanded="true" aria-controls="collapseOne">
+                        <ul class="list-unstyled fs-3 m-0">
                             <li>
                                 Pedido {{ $contador }}
                             </li>
@@ -69,7 +69,7 @@
             @empty
             <h3 >No tienes pedidos</h3>
             @endforelse
-                
+            <a href="{{route('index') }}" class="btn btn-outline-dark m-3 ">Volver</a>    
         </div>
         
 @endsection
