@@ -4,7 +4,7 @@
            <h1 class=" display-1">Pedidos</h1>
             
             @forelse ($pedidos as $pedido)
-                
+               
                 <div class="accordion-item ">
                     <h3 class="accordion-header row gx-0" id="headingOne">
                         <button class="accordion-button collapsed col" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{$pedido->id}}" aria-expanded="true" aria-controls="collapseOne">
@@ -34,13 +34,12 @@
                                     <option value="retrasado">Retrasado</option>
                                 </select>
                                 <input class="btn btn-success my-2" type="submit" value="Actualizar">
+
                             </form>
                         </div>
                     </h3>
                     <div id="collapse{{$pedido->id}}" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                        <div class="accordion-body">
-
-                        
+                        <div class="accordion-body">    
                             @php
                                 $total = 0;
                             @endphp
@@ -66,6 +65,7 @@
                                         </li>
                                     </ul>
                                     <hr>
+
                                 
                                     
                             @empty
