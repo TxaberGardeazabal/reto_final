@@ -53,8 +53,13 @@ function buscar(){
 function ocultar(posicionesEncontradas,lproductos){//Oculta todo menos los elementos con id coincidentes
     let posicionesEncontradas2=[];
     posicionesEncontradas2=posicionesEncontradas;
-    for(let i=0;i<lproductos.length;i++){   
-        document.getElementById(`p${i+1}`).style.display="none";
+    for(let i=0;i<lproductos.length;i++){ 
+        if(i==0){
+            num=i+1;
+        }else{
+            num=i+11;
+        }
+        document.getElementById(`p${num}`).style.display="none";
         elementosOcultos=true;
         posicionesEncontradas2.find(element=>{
             if(element==(i+1)){
