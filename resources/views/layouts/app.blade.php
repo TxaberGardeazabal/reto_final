@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
    
-    <title>Hosteleria</title>
+    <title>Hosteleria super</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/jquery-3.6.0.min.js') }}"></script>
@@ -23,10 +23,13 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+
+    <!-- Icon -->
+    <link rel="icon" href="{{ asset('img/logo.ico') }}">
 </head>
 <body>
     <div id="app" class="container-fluid">
-        <nav class="navbar navbar-expand navbar-light shadow-sm"  style="background-color: rgb(97, 171, 96);">
+        <nav class="navbar navbar-expand navbar-light shadow-sm">
             <div class="container">
                 <div class="navbar-brand">
                     <a class=" display-6 ms-3 text-reset" href="{{ url('/producto') }}">
@@ -57,7 +60,7 @@
                             @endif
                         @else
                             <li class="nav-item dropdown">
-                                <a id="navbarDropdown" style="background-color: rgb(97, 171, 96);" class="nav-link dropdown-toggle border border-2 rounded-2 text-white" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle border border-2 rounded-2 text-white" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
                                 </a>
 

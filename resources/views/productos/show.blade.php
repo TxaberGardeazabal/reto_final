@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
 <div class="row">
-    <div class="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12 p-0">
+    <div class="col-12 p-0">
         <ul id="lProductos">
             <li class="producto m-2 text-center py-2" id="p{{$producto['id']}}" >
                 
