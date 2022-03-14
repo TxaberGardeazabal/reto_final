@@ -109,8 +109,11 @@ class DatabaseSeeder extends Seeder
         for ($x = 0;$x < $MAX_PEDIDOS;$x++) {
             $user;
             do {
-                $e = rand(1,$MAX_USUARIOS); 
+                $e = rand(1,$MAX_USUARIOS);
+                /* para poder ejecutar el seeder en local cambia esta linea por esta otra*/
+                //$user = \App\Models\User::find($e); 
                 $user = \App\Models\User::find($e * 10 + 1); // cleardb
+                
             } while($user->admin);
 
             $e = rand(0, count($ESTADO)-1);
@@ -139,7 +142,9 @@ class DatabaseSeeder extends Seeder
         }
 
         foreach ($pedidos as $idx => $pedido) {
-            $producto = \App\Models\Producto::find(rand(1,$MAX_PRODUCTOS) * 10 + 1); // cleardb
+            /* para poder ejecutar el seeder en local cambia esta linea por esta otra*/
+            // $producto = \App\Models\Producto::find(rand(1,$MAX_PRODUCTOS));
+            $producto = \App\Models\Producto::find(rand(0,$MAX_PRODUCTOS) * 10 + 1); // cleardb
             $pedido->productos()->attach($producto->id, ['created_at' => now(),'cantidad' => rand(1,$MAX_CANTIDAD)]);
 
             // algunos pedidos pueden ser de diferentes productos, aqui pongo algun producto extra
