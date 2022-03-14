@@ -2,7 +2,6 @@ let elementosOcultos=false;//Indica si hay elementos ocultos
 function eventosBusqueda(){
     if(document.getElementById("buscador").value==0){
         let lproductos=Array.from(document.getElementsByClassName("producto"));
-        console.log(lproductos);
         for(let i=0;i<lproductos.length;i++){
            lproductos[i].style.display="list-item";
         }
@@ -27,7 +26,6 @@ function buscar(){
     let lproductosText=[]
     for(let i=0;i<lproductos.length;i++){
         lproductosText=Array.from(lproductos[i].children[0].getElementsByTagName('a'));
-        console.log(lproductosText[0].children[1].innerHTML);
         lproductos[i]=lproductosText[0].children[1].innerHTML;
         //lproductos[i]=lproductos[i].innerHTML;
     }
