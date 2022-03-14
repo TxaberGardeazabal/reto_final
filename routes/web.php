@@ -23,7 +23,7 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+//Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get("/carrito",[Productos_pedido::class, 'index'])->name("carrito");
 Route::get('/carrito/producto/{id}',[Productos_pedido::class, 'visualilzar_productos']);
@@ -37,4 +37,5 @@ Route::post('/producto/create', [ProductoController::class, 'store'])->name('sto
 Route::get('/producto/show/{id}', [ProductoController::class, 'show'])->name('show');
 Route::get('/pedidos/show', [PedidoController::class, 'show'])->name('pedidos.show')->middleware('auth');
 Route::post('/pedidos/update/{id}', [PedidoController::class, 'update'])->name('pedidos.update')->middleware('auth');
+
 

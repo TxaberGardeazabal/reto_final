@@ -11,15 +11,6 @@ use App\Models\User;
 use App\Http\Controllers\MailController;
 class PedidoController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
 
     /**
      * Show the form for creating a new resource.
@@ -72,10 +63,12 @@ class PedidoController extends Controller
         }
         else {
             $pedidos = Pedido::where('user_id',$user->id)->get();
-            //$a = $pedidos[0]->productos()->get()[0];
-            //dd($a);
+
+            //$pedidos = $user->pedidos;
+            //$a = Pedido::find(2)->usuario;
+            //dd($pedidos);
             return view('pedidos.show',['pedidos' => $pedidos]);
-        } 
+        }  
     }
 
     /**
@@ -109,7 +102,6 @@ class PedidoController extends Controller
             $pedido->save();
         }
         return redirect(route('pedidos.show'));
-        
     }
 
     /**

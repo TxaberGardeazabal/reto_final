@@ -4,11 +4,11 @@
            <h1 class=" display-1">Pedidos</h1>
             
             @forelse ($pedidos as $pedido)
-                
-                <div class="accordion-item">
+               
+                <div class="accordion-item ">
                     <h3 class="accordion-header row gx-0" id="headingOne">
-                        <button class="accordion-button collapsed col-1 w-75 border-end" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{$pedido->id}}" aria-expanded="true" aria-controls="collapseOne">
-                                <ul class="list-unstyled fs-3">
+                        <button class="accordion-button collapsed col" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{$pedido->id}}" aria-expanded="true" aria-controls="collapseOne">
+                                <ul class="list-unstyled fs-3 m-0">
                                     <li>
                                         ID: {{ $pedido->id }}
                                     </li>
@@ -23,24 +23,23 @@
                                     </li>
                                 </ul>
                             </button>
-                        <div class="col-3 px-2" style="box-shadow: inset 0 -1px 0 rgb(0 0 0 / 13%);">
+                        <div class="col-12 col-md-3 px-2" id="accordion-side">
                             <form action="{{ route('pedidos.update', ['id' => $pedido->id ]) }}" method="POST">
                                 @csrf
-                                <label class="form-label" for="est">Estado:</label>
+                                <label class="form-label my-2" for="est">Estado:</label>
                                 <select class="form-select" name="estado" id="est">
                                     <option value="recibido">Recibido</option>
                                     <option value="en proceso">En proceso</option>
                                     <option value="preparado">Preparado</option>
                                     <option value="retrasado">Retrasado</option>
                                 </select>
-                                <input class="btn btn-primary mt-2" type="submit" value="Actualizar">
+                                <input class="btn btn-success my-2" type="submit" value="Actualizar">
+
                             </form>
                         </div>
                     </h3>
                     <div id="collapse{{$pedido->id}}" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                        <div class="accordion-body">
-
-                        
+                        <div class="accordion-body">    
                             @php
                                 $total = 0;
                             @endphp
@@ -48,6 +47,7 @@
                         
                                     @php
                                         $total += $producto->precio * $producto->pivot->cantidad;
+
                                     @endphp
                                     
                                     <ul class="list-unstyled fs-4"> 
@@ -64,7 +64,8 @@
                                             Cantidad: {{ $producto->pivot->cantidad }}
                                         </li>
                                     </ul>
-                                    
+                                    <hr>
+
                                 
                                     
                             @empty
