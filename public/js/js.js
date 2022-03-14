@@ -54,6 +54,7 @@ function ocultar(posicionesEncontradas,lproductos){//Oculta todo menos los eleme
     let posicionesEncontradas2=[];
     posicionesEncontradas2=posicionesEncontradas;
     for(let i=0;i<lproductos.length;i++){ 
+        // local document.getElementById(`p${i+1}`).style.display="none";
         if(i==0){
             num=i+1;
         }else{
