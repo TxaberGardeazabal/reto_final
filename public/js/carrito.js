@@ -1,7 +1,7 @@
 window.onload=function(){
     var carrito=[];
     carrito=sessionStorage.getItem('carrito').split(" ");
-    if(carrito){
+    if(carrito!=null){
         var tabla=document.getElementById("tablaCarrito");
         let precioFinalTotal=0;
         document.getElementById("comprar").removeAttribute("disabled");
@@ -10,7 +10,7 @@ window.onload=function(){
            peticion(i,carrito);
         }
     }else{
-        alert("No hay productos en el carrito");
+        console.log("No hay productos en el carrito");
     }
     function peticion(i,carrito){
         $.ajax({
