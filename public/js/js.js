@@ -1,7 +1,8 @@
 let elementosOcultos=false;//Indica si hay elementos ocultos
 function eventosBusqueda(){
     if(document.getElementById("buscador").value==0){
-        let lproductos=Array.from(document.getElementsByClassName("nombre"));
+        let lproductos=Array.from(document.getElementsByClassName("producto"));
+        console.log(lproductos);
         for(let i=0;i<lproductos.length;i++){
            lproductos[i].style.display="list-item";
         }
