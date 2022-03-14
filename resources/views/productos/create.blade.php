@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <form class="col-11 col-md-9 border border-2 rounded-3 p-3" action="{{route('store')}}" method="post" enctype="multipart/form-data">
+    <form class="col-11 col-md-9 border border-2 rounded-3 border-secondary p-3" action="{{route('store')}}" method="post" enctype="multipart/form-data">
         @csrf
         <div class="row">
             <h2 class="col text-center">A&ntilde;adir producto</h2>
@@ -32,8 +32,8 @@
         <div class="row my-2">
             
             <div class="col">
-                <input class="btn btn-primary" type="submit" value="Añadir">
-                <a href="{{route('index') }}" class="btn btn-outline-dark m-3 ">Volver</a>
+                <input class="btn btn-success" type="submit" value="Añadir">
+                <a href="{{route('index') }}" class="btn btn-outline-dark m-1 ">Volver</a>
 
             </div>
         </div>
