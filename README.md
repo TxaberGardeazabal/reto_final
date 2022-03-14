@@ -21,6 +21,7 @@ Esta aplicacion esta hecha con la funcion de gestionar pedidos de productos en e
 
 
 - Nada mas entrar en la aplicación aparece la pagina de los productos donde tu puedes añadir al carrito lo que desees comprar.
+- Al clicar en el nombre Hosteleria te lleva a la pagina principal.
  ### Cliente
 - Para poder comprar los productos añadidos en el carrito tienes que iniciar sesión.
 - Una vez inicias sesion o te registras aparecerá en la varra de arriba un boton con el nombre con el que te as registrado.
