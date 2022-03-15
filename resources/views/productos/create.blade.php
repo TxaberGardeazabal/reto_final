@@ -15,6 +15,9 @@
                 <input class="form-control" required type="text" name="precio" id="precio" placeholder=" ">
                 <span class="ps-3">Precio</span>
             </label>
+            @if(precioError)
+                <p>Precio incorrecto</p>
+            @endif
         </div>
         <div class="row my-2">
             <div class="col">
