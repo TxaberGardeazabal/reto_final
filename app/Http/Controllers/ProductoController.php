@@ -44,7 +44,7 @@ class ProductoController extends Controller
         if(is_float($request->precio)){
             $producto->precio=$request->precio;
         }else{
-            return redirect(route('index'));
+            return "Precio incorrecto";
         }
         if($request->hasFile("imagen")){
             
