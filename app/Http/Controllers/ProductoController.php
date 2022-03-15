@@ -41,7 +41,7 @@ class ProductoController extends Controller
         
         $producto=new Producto();
         $producto->nombre=$request->nombre;
-        $regEx= "/^[0-9]+([,][0-9]+)?$/";
+        $regEx= "/^[0-9]+([.][0-9]+)?$/";
         if(preg_match($regEx,$request->precio)){
             $producto->precio=$request->precio;
         }else{
