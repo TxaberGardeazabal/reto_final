@@ -26,7 +26,7 @@
         <div class="row my-2">
             <div class="col">
                 <label class="form-label m-0 mb-1" for="descripcion">Descripcion</label>
-                <textarea class="form-control" name="descripcion" id="descripcion" placeholder="una breve descripcion del producto " rows="3"></textarea>
+                <textarea class="form-control" required name="descripcion" id="descripcion" placeholder="una breve descripcion del producto " rows="3"></textarea>
             </div>
         </div>
         <div class="row my-2">
