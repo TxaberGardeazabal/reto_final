@@ -27,7 +27,7 @@ class ProductoController extends Controller
      */
     public function create()
     {
-        return view('productos.create');
+        return view('productos.create', ['precioError'=> 'false']);
     }
 
     /**
@@ -44,7 +44,7 @@ class ProductoController extends Controller
         if(is_float($request->precio)){
             $producto->precio=$request->precio;
         }else{
-            return view('productos.create', ['precioError'=> true]);
+            return view('productos.create', ['precioError'=> 'true']);
         }
         if($request->hasFile("imagen")){
             
