@@ -41,7 +41,11 @@ class ProductoController extends Controller
         
         $producto=new Producto();
         $producto->nombre=$request->nombre;
-        $producto->precio=$request->precio;
+        if(is_float($request->precio)){
+            $producto->precio=$request->precio;
+        }else{
+            return redirect(route('index'));
+        }
         if($request->hasFile("imagen")){
             
             $nombreimg=Str::slug($request->nombre).".".$request->imagen->extension();
