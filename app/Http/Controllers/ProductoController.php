@@ -41,7 +41,8 @@ class ProductoController extends Controller
         
         $producto=new Producto();
         $producto->nombre=$request->nombre;
-        if(is_float($request->precio)){
+        $regEx= "/^[0-9]+([,][0-9]+)?$/";
+        if(preg_match($regEx,$request->precio)){
             $producto->precio=$request->precio;
         }else{
             return view('productos.create', ['precioError'=> 'true']);
