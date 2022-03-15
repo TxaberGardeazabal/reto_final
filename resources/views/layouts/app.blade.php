@@ -33,7 +33,7 @@
             <div class="container">
                 <div class="navbar-brand">
                     <a class=" display-6 ms-3 text-reset" href="{{ url('/producto') }}">
-                        Hosteleria 
+                        Hosteleria super
                     </a>
                 </div>
                 
