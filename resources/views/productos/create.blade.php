@@ -15,7 +15,7 @@
                 <input class="form-control" required type="text" name="precio" id="precio" placeholder=" ">
                 <span class="ps-3">Precio</span>
             </label>
-            @if(isset(precioError))
+            @if($precioError=='true')
                 <p>Precio incorrecto</p>
             @endif
         </div>
